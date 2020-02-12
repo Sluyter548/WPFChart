@@ -37,7 +37,7 @@ namespace WPFShapeChart.ViewModels
         }
 
 
-
+        
         public bool ForceYStartAtZero { get; set; } = false;
         /// <summary>
         /// specifies the width of the bar in the chart
@@ -287,17 +287,22 @@ namespace WPFShapeChart.ViewModels
 
 
 
-                if (ForceYStartAtZero)
+                if (LowestTickMarkValue==0) //
                 {
                     CurrentBar.Height = BarHeightModifier * DataList.DataPoints[LoopCounter].Value;
                     CurrentBar.YPosition = (ChartHeight - ChartSpaceOffsetBottom) - DataList.DataPoints[LoopCounter].Value * BarHeightModifier - 2;
                     
                 }
-                else
+                else if(MinDataValue>=0) // normal chart starting from above 0
                 {
                     CurrentBar.Height = BarHeightModifier * (DataList.DataPoints[LoopCounter].Value - LowestTickMarkValue);
-                    CurrentBar.YPosition = -YAxisZeroValueOffset+(ChartHeight - ChartSpaceOffsetBottom) - (DataList.DataPoints[LoopCounter].Value - LowestTickMarkValue) * BarHeightModifier - 2; // YAxisZeroValueOffset now follows correctly the 0 value tickmark on y-axis, need to continue with the bars now because they are not yet correct
+                    CurrentBar.YPosition = (ChartHeight - ChartSpaceOffsetBottom) - (DataList.DataPoints[LoopCounter].Value - LowestTickMarkValue) * BarHeightModifier - 2; 
 
+                }
+                else //chart that has y=0 somewhere in the middle
+                {
+                    CurrentBar.Height = BarHeightModifier * (DataList.DataPoints[LoopCounter].Value - LowestTickMarkValue);
+                    CurrentBar.YPosition = -YAxisZeroValueOffset + (ChartHeight - ChartSpaceOffsetBottom) - (DataList.DataPoints[LoopCounter].Value - LowestTickMarkValue) * BarHeightModifier - 2;
                 }
 
 

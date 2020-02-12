@@ -301,8 +301,16 @@ namespace WPFShapeChart.ViewModels
                 }
                 else //chart that has y=0 somewhere in the middle
                 {
-                    CurrentBar.Height = BarHeightModifier * (DataList.DataPoints[LoopCounter].Value - LowestTickMarkValue);
-                    CurrentBar.YPosition = -YAxisZeroValueOffset + (ChartHeight - ChartSpaceOffsetBottom) - (DataList.DataPoints[LoopCounter].Value - LowestTickMarkValue) * BarHeightModifier - 2;
+                    if (DataList.DataPoints[LoopCounter].Value > 0)
+                    {
+                        CurrentBar.Height = BarHeightModifier * (DataList.DataPoints[LoopCounter].Value);
+                        CurrentBar.YPosition = -YAxisZeroValueOffset + (ChartHeight - ChartSpaceOffsetBottom) - (DataList.DataPoints[LoopCounter].Value) * BarHeightModifier - 2;
+                    }
+                    else
+                    {
+                        CurrentBar.Height = BarHeightModifier * (-DataList.DataPoints[LoopCounter].Value);
+                        CurrentBar.YPosition = -YAxisZeroValueOffset + (ChartHeight - ChartSpaceOffsetBottom) + 2;
+                    }
                 }
 
 

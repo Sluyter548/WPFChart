@@ -1,0 +1,19 @@
+﻿<Application x:Class="WPFShapeChart.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WPFShapeChart"
+             xmlns:viewmodels="clr-namespace:WPFShapeChart.ViewModels"
+             xmlns:views="clr-namespace:WPFShapeChart.Views">
+    
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:VeryBasicChartViewModel}">
+            <views:VeryBasicBarChartView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:MainMenuViewModel}">
+            <views:MainMenuView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:BasicChartViewModel}">
+            <views:BasicBarChartView/>
+        </DataTemplate>
+    </Application.Resources>
+</Application>

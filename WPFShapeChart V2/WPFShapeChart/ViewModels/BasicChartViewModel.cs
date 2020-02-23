@@ -126,12 +126,12 @@ namespace WPFShapeChart.ViewModels
 
                 if (ForceYStartAtZero)
                 {
-                    TargetLine.YPosition = (ChartHeight - ChartSpaceOffsetBottom) - DataList.TargetLine * BarHeightModifier - 2;
+                    TargetLine.YPosition = (ChartHeight - ChartSpaceOffsetBottom) - DataList.TargetLine * BarHeightModifier;
                 }
                 else
                 {
 
-                    TargetLine.YPosition = (ChartHeight - ChartSpaceOffsetBottom) - (DataList.TargetLine - LowestTickMarkValue) * BarHeightModifier - 2;
+                    TargetLine.YPosition = (ChartHeight - ChartSpaceOffsetBottom) - (DataList.TargetLine - LowestTickMarkValue) * BarHeightModifier;
                 }
 
 
@@ -290,13 +290,13 @@ namespace WPFShapeChart.ViewModels
                 if (LowestTickMarkValue==0) //
                 {
                     CurrentBar.Height = BarHeightModifier * DataList.DataPoints[LoopCounter].Value;
-                    CurrentBar.YPosition = (ChartHeight - ChartSpaceOffsetBottom) - DataList.DataPoints[LoopCounter].Value * BarHeightModifier - 2;
+                    CurrentBar.YPosition = (ChartHeight - ChartSpaceOffsetBottom) - DataList.DataPoints[LoopCounter].Value * BarHeightModifier;
                     
                 }
                 else if(MinDataValue>=0) // normal chart starting from above 0
                 {
                     CurrentBar.Height = BarHeightModifier * (DataList.DataPoints[LoopCounter].Value - LowestTickMarkValue);
-                    CurrentBar.YPosition = (ChartHeight - ChartSpaceOffsetBottom) - (DataList.DataPoints[LoopCounter].Value - LowestTickMarkValue) * BarHeightModifier - 2; 
+                    CurrentBar.YPosition = (ChartHeight - ChartSpaceOffsetBottom) - (DataList.DataPoints[LoopCounter].Value - LowestTickMarkValue) * BarHeightModifier; 
 
                 }
                 else //chart that has y=0 somewhere in the middle
@@ -304,12 +304,12 @@ namespace WPFShapeChart.ViewModels
                     if (DataList.DataPoints[LoopCounter].Value > 0)
                     {
                         CurrentBar.Height = BarHeightModifier * (DataList.DataPoints[LoopCounter].Value);
-                        CurrentBar.YPosition = -YAxisZeroValueOffset + (ChartHeight - ChartSpaceOffsetBottom) - (DataList.DataPoints[LoopCounter].Value) * BarHeightModifier - 2;
+                        CurrentBar.YPosition = -YAxisZeroValueOffset + (ChartHeight - ChartSpaceOffsetBottom) - (DataList.DataPoints[LoopCounter].Value) * BarHeightModifier;
                     }
                     else
                     {
                         CurrentBar.Height = BarHeightModifier * (-DataList.DataPoints[LoopCounter].Value);
-                        CurrentBar.YPosition = -YAxisZeroValueOffset + (ChartHeight - ChartSpaceOffsetBottom) + 2;
+                        CurrentBar.YPosition = -YAxisZeroValueOffset + (ChartHeight - ChartSpaceOffsetBottom);
                     }
                 }
 

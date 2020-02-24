@@ -10,10 +10,10 @@ namespace WPFShapeChart.ViewModels
 {
     public class MainMenuViewModel : ViewModelBase
     {
-        private BasicChartViewModel _ChartViewModel = new BasicChartViewModel();
+        private WaterfallViewModel _ChartViewModel = new WaterfallViewModel();
         
         
-        public BasicChartViewModel ChartViewModel { get {
+        public WaterfallViewModel ChartViewModel { get {
                 return _ChartViewModel;
             } set
             {
@@ -69,16 +69,6 @@ namespace WPFShapeChart.ViewModels
             ChartViewModel.SetBarChartDataSeries(MyDataSeries);
             
             
-            
-            //var myview = new WPFShapeChart.Views.VeryBasicBarChartView(ChartViewModel);
-            
-
-            
-            //shit, how do I handle this shit with views again? :S
-            //lemme think...
-
-
-
 
         }
 

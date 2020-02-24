@@ -91,11 +91,15 @@
     <Compile Include="Models\BarChartDataPoint.cs" />
     <Compile Include="Models\BarChartDataSeries.cs" />
     <Compile Include="Models\ChartNodes.cs" />
+    <Compile Include="ViewModels\WaterfallViewModel.cs" />
     <Compile Include="ViewModels\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\BasicChartViewModel.cs" />
     <Compile Include="ViewModels\VIewModelBase.cs" />
     <Compile Include="ViewModels\VeryBasicChartViewModel.cs" />
+    <Compile Include="Views\WaterfallChartView.xaml.cs">
+      <DependentUpon>WaterfallChartView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainMenuView.xaml.cs">
       <DependentUpon>MainMenuView.xaml</DependentUpon>
     </Compile>
@@ -117,6 +121,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\WaterfallChartView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\MainMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
